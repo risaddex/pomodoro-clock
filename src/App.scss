@@ -1,13 +1,109 @@
-body {
+$main-color: #FAFFD9;
+$widgets-color: #C4C4C4;
+$clock-size : 525px;
+
+html, body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  height: 100vh;
+  height: 100%;
 }
 .centered {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#clock {
+  border-radius: 50%;
+  display: flex;
+  border: 1px solid red;
+  width: $clock-size ;
+  height: $clock-size ;
+  background-color: $main-color;
+  flex-direction: column;
+  align-items: center;
+  // margin: 0 auto;
+}
+
+.widgetContainer {
+  display: flex;
+  // float: right;
+  width: 80%;
+  height: $clock-size * 0.333;
+  align-items:flex-end;
+  padding: 7.5%;
+  justify-content: space-between;
+}
+
+.timeWidget {
+  display: flex;
+  width: $clock-size / 3;
+  height: $clock-size / 7;
+  background-color: $widgets-color;
+}
+
+.widgetContent {
   display: flex;
   width: 100%;
-  text-align: center;
+  // border: 1px solid red;
   flex-direction: column;
-  margin: auto ;
+
+  >div {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  border: 1px solid red;
+}
+
+.arrow {
+  display: flex; 
+  height: 100%;
+  cursor: pointer;
+}
+
+.reverse {
+  transform: rotate(180deg);
+}
+
+.bottomWidget {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  width: 70%;
+  height: $clock-size / 3.5 ;
+  background-color: $widgets-color;
+}
+
+.col-cel {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls-widget {
+  display: flex;
+  width: 70%;
+
+  >div {
+    margin: auto 25px;
+    margin-top: 5px;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(rgba(187, 143, 143, 0.5), rgba(0, 0, 0, 0.5));
+    justify-content: space-between;
+    text-align: center;
+    cursor: pointer;
+  }
 }

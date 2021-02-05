@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './App.scss';
+import Clock from './Components/Clock';
 import Zoeira from './Components/Zoeira';
 
 const App = () => {
   return(
     <>
        <div className="centered">
-         <div className="container">
-          
+         <div id="clock">
+          <Clock />
          </div>
        </div>
     </>
