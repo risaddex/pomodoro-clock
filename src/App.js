@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './App.scss';
+import Zoeira from './Components/Zoeira';
 
 const App = () => {
   return(
     <>
-       Hero Word
+       <div className="centered">
+         <div className="container">
+          
+         </div>
+       </div>
     </>
   );
 }
