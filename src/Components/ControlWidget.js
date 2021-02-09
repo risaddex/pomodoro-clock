@@ -3,15 +3,12 @@ import React from 'react';
 const ControlWidget = () => (
 
   <div className="controls-widget">
-    <div>
-      Play
-    </div>
-
-    <div>
+    <div id="start_stop">
+      Play/
       Pause
     </div>
 
-    <div>
+    <div id="reset">
       Reset
     </div>
   </div>

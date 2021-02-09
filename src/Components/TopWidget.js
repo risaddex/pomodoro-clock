@@ -1,9 +1,9 @@
-const Widget = ({ id, text, time }) => (
+const Widget = ({ id, text, time, arrowId }) => (
 
   <div className="timeWidget" id={id}>
     <div className="row">
 
-      <div className="arrow">
+      <div className="arrow" id={`${text}-increment`}>
         <img src="arrow.svg" alt="arrow up" />
       </div>
 
@@ -15,7 +15,7 @@ const Widget = ({ id, text, time }) => (
           {time}
         </div>
       </div>
-        <div className="arrow reverse">
+        <div className="arrow reverse" id={`${text}-decrement`}>
           <img src="arrow.svg" alt="arrow down" />
         </div>
       </div>
@@ -27,12 +27,12 @@ const TopWidget = ( ) => (
   <div className="widgetContainer">
     <Widget
       id="break-label"
-      text="Break"
+      text="break"
       time="5"
     />
     <Widget
       id="session-label"
-      text="Session"
+      text="session"
       time="25"
     />
   </div>

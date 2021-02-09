@@ -7,8 +7,8 @@ const Clock = () => (
   <>
     <TopWidget />
     <BottomWidget
-      text="texto"
-      time="time"
+      text="Session"
+      time="25:00"
     />
     <ControlWidget />
   </>
