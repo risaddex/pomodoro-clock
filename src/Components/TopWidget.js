@@ -11,7 +11,7 @@ const Widget = ({ id, text, time, arrowId }) => (
         <div>
           {text}
         </div>
-        <div>
+        <div id={`${text}-length`}>
           {time}
         </div>
       </div>

@@ -6,10 +6,7 @@ import TopWidget from './TopWidget';
 const Clock = () => (
   <>
     <TopWidget />
-    <BottomWidget
-      text="Session"
-      time="25:00"
-    />
+    <BottomWidget/>
     <ControlWidget />
   </>
 );
