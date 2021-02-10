@@ -1,4 +1,4 @@
-export const parsedRemainingTime = (time) => {
+export const parseTime = (time) => {
 
   const ss = time % 60 < 10
     ? `0${time % 60}`

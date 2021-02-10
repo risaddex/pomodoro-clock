@@ -1,4 +1,4 @@
-const Widget = ({ id, text, time, arrowId }) => (
+const Widget = ({ id, text, time }) => (
 
   <div className="timeWidget" id={id}>
     <div className="row">
@@ -23,19 +23,22 @@ const Widget = ({ id, text, time, arrowId }) => (
     </div>
 );
 
-const TopWidget = ( ) => (
-  <div className="widgetContainer">
-    <Widget
-      id="break-label"
-      text="break"
-      time="5"
-    />
-    <Widget
-      id="session-label"
-      text="session"
-      time="25"
-    />
-  </div>
-);
+const TopWidget = ({ handleSession, handleBreak }) => {
+  
+  return (
+    <div className="widgetContainer">
+      <Widget
+        id="break-label"
+        text="break"
+        time="5"
+      />
+      <Widget
+        id="session-label"
+        text="session"
+        time="25"
+      />
+    </div>
+  );
+}
 
 export default TopWidget

@@ -1,40 +1,25 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { parsedRemainingTime } from '../utils/utils';
+import React from 'react';
+import { parseTime } from '../utils/utils';
+import ControlWidget from './ControlWidget';
 
-const BottomWidget = () => {
-  const [clockMode, setClockMode] = useState('session')
-  const [remainingTime, setRemainingTime] = useState(5) // 1500s = 25 minutos
-  // using Ref
-  const interval = useRef(null)
+const BottomWidget = ({ onPlayPause, onReset, remainingTime, clockMode }) => {
 
-  useEffect(() => {
-    interval.current = setTimeout(() => {
-      setRemainingTime(remainingTime - 1)
-    }, 1000)
-
-    return () => {
-      clearTimeout(interval.current)
-    }
-    
-  }, [remainingTime])
-
-  useEffect(() => {
-    if(remainingTime === 0) {
-      clearTimeout(interval.current)
-    }
-  }, [remainingTime])
-
-  
   return (
-    <div className="bottomWidget">
-      <div className="col-cel" id="timer-label">
-        {clockMode}
+    <>
+      <div className="bottomWidget">
+        <div className="col-cel" id="timer-label">
+          {clockMode}
+        </div>
+
+        <div className="col-cel" id="time-left">
+          {parseTime(remainingTime)}
+        </div>
       </div>
-      
-      <div className="col-cel" id="time-left">
-        {parsedRemainingTime(remainingTime)}
-      </div>
-    </div>
+      <ControlWidget
+        triggerPlayPause={onPlayPause}
+        triggerReset={onReset}
+      />
+    </>
   );
 }
 
