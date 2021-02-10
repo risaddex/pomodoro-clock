@@ -9,6 +9,7 @@ const App = () => {
     <>
       <div className="centered">
          <div id="clock">
+          <h2>pomoclock</h2>
             <Clock />
          </div>
        </div>

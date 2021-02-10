@@ -1,41 +1,60 @@
-const Widget = ({ id, text, time }) => (
+import React from 'react';
 
-  <div className="timeWidget" id={id}>
-    <div className="row">
+const Widget = ({ id, text, time, handleClick }) => {
 
-      <div className="arrow" id={`${text}-increment`}>
-        <img src="arrow.svg" alt="arrow up" />
-      </div>
+  const increase = () => time < 60 ? handleClick(+1) : null
+  const decrease = () => time > 1 ? handleClick(-1) : null
 
-      <div className="widgetContent">
-        <div>
-          {text}
+  return (
+    <div className="timeWidget" id={id}>
+      <div className="row">
+
+        <div
+          className="arrow"
+          id={`${text}-increment`}
+          onClick={increase}
+        >
+          <img src="arrow.svg" alt="arrow up" />
         </div>
-        <div id={`${text}-length`}>
-          {time}
-        </div>
-      </div>
-        <div className="arrow reverse" id={`${text}-decrement`}>
-          <img src="arrow.svg" alt="arrow down" />
-        </div>
-      </div>
 
+        <div className="widgetContent">
+          <div>
+            {text}
+          </div>
+          <div id={`${text}-length`}>
+            {time}
+          </div>
+        </div>
+          <div
+            className="arrow reverse"
+            id={`${text}-decrement`}
+            onClick={decrease}
+          >
+            <img src="arrow.svg" alt="arrow down" />
+          </div>
+        </div>
     </div>
-);
+  );
+}
 
-const TopWidget = ({ handleSession, handleBreak }) => {
+const TopWidget = ({ handleSession, handleBreak, sessionTime, breakTime, isClockActive }) => {
+  
   
   return (
-    <div className="widgetContainer">
+    <div className={`widgetContainer ${isClockActive ? 'disabledClick' : ''}`}>
       <Widget
         id="break-label"
         text="break"
-        time="5"
+        time={breakTime}
+        handleClick={handleBreak}
+        isClockActive={isClockActive}
       />
       <Widget
         id="session-label"
         text="session"
-        time="25"
+        time={sessionTime}
+        handleClick={handleSession}
+        isClockActive={isClockActive}
       />
     </div>
   );
